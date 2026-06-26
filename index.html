@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RajTech Cooling Solutions | Premium AC Installation & Service — Trinidad</title>
+  <meta name="description" content="RajTech Cooling Solutions — premium split-unit AC installation and servicing for homes and small businesses across Trinidad. Book via WhatsApp or phone." />
+  <meta name="theme-color" content="#030b14" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ===================== RESET & BASE ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:        #030b14;
+      --bg2:       #071828;
+      --bg3:       #0a1f32;
+      --blue:      #0c7fff;
+      --blue2:     #0056d6;
+      --cyan:      #00d4ff;
+      --gold:      #fbbf24;
+      --green:     #22c55e;
+      --text:      #e2f0ff;
+      --text2:     #94b4cc;
+      --text3:     #5a7a96;
+      --border:    rgba(0,180,255,.12);
+      --glow-blue: 0 0 60px rgba(12,127,255,.35);
+      --glow-cyan: 0 0 40px rgba(0,212,255,.25);
+      --radius:    16px;
+      --radius-lg: 24px;
+      --transition: .3s cubic-bezier(.4,0,.2,1);
+    }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; font: inherit; border: none; background: none; }
+    ul { list-style: none; }
+
+    /* ===================== SCROLLBAR ===================== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--blue2); border-radius: 99px; }
+
+    /* ===================== UTILITIES ===================== */
+    .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+    /* ===================== NAVBAR ===================== */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      padding: 22px 0;
+      transition: var(--transition);
+    }
+    #navbar.scrolled {
+      padding: 14px 0;
+      background: rgba(3,11,20,.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 8px 40px rgba(0,0,0,.4);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px; font-family: 'Poppins', sans-serif;
+      font-weight: 800; font-size: 20px; letter-spacing: -.03em; color: var(--text);
+    }
+    .nav-logo-icon {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      display: grid; place-items: center; flex-shrink: 0;
+      box-shadow: var(--glow-blue);
+    }
+    .nav-logo-icon svg { width: 22px; height: 22px; color: #fff; }
+    .nav-links {
+      display: flex; align-items: center; gap: 6px;
+    }
+    .nav-links a {
+      padding: 8px 14px; border-radius: 8px; font-size: 14px; font-weight: 500;
+      color: var(--text2); transition: var(--transition);
+    }
+    .nav-links a:hover { color: var(--text); background: rgba(255,255,255,.06); }
+    .nav-cta {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .btn-ghost {
+      padding: 9px 18px; border-radius: 10px; font-size: 14px; font-weight: 600;
+      color: var(--cyan); border: 1px solid rgba(0,212,255,.3);
+      transition: var(--transition);
+    }
+    .btn-ghost:hover { background: rgba(0,212,255,.1); border-color: var(--cyan); }
+    .btn-primary {
+      padding: 10px 20px; border-radius: 10px; font-size: 14px; font-weight: 700;
+      background: linear-gradient(135deg, var(--blue), #1a8cff);
+      color: #fff; transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(12,127,255,.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(12,127,255,.5); }
+
+    /* hamburger */
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      width: 36px; height: 36px; justify-content: center; align-items: center;
+      border-radius: 8px; transition: var(--transition);
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--text); border-radius: 99px; transition: var(--transition);
+    }
+    .nav-hamburger:hover { background: rgba(255,255,255,.08); }
+
+    /* mobile menu */
+    #mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 800;
+      background: rgba(3,11,20,.97); backdrop-filter: blur(20px);
+      flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+      padding: 24px;
+    }
+    #mobile-menu.open { display: flex; }
+    #mobile-menu a, #mobile-menu button {
+      font-size: 22px; font-weight: 700; color: var(--text);
+      padding: 14px 32px; border-radius: 12px; width: 100%; max-width: 320px;
+      text-align: center; transition: var(--transition);
+    }
+    #mobile-menu a:hover, #mobile-menu button:hover { background: rgba(12,127,255,.15); color: var(--cyan); }
+    #mobile-close {
+      position: absolute; top: 24px; right: 24px;
+      font-size: 32px; color: var(--text2); width: 44px; height: 44px;
+      display: grid; place-items: center; border-radius: 10px; transition: var(--transition);
+    }
+    #mobile-close:hover { background: rgba(255,255,255,.08); color: var(--text); }
+
+    /* ===================== HERO ===================== */
+    #hero {
+      position: relative; min-height: 100svh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; padding: 120px 0 80px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(12,127,255,.22) 0%, transparent 70%),
+                  radial-gradient(ellipse 50% 40% at 80% 60%, rgba(0,212,255,.12) 0%, transparent 60%),
+                  radial-gradient(ellipse 40% 50% at 10% 80%, rgba(0,86,214,.15) 0%, transparent 60%),
+                  var(--bg);
+    }
+    .hero-grid-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background-image:
+        linear-gradient(rgba(12,127,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(12,127,255,.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    }
+    .hero-orb {
+      position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0;
+    }
+    .hero-orb-1 {
+      width: 600px; height: 600px; background: rgba(12,127,255,.18);
+      top: -200px; left: -100px; animation: orb-drift 12s ease-in-out infinite alternate;
+    }
+    .hero-orb-2 {
+      width: 400px; height: 400px; background: rgba(0,212,255,.12);
+      bottom: -100px; right: -50px; animation: orb-drift 16s ease-in-out infinite alternate-reverse;
+    }
+    @keyframes orb-drift {
+      from { transform: translate(0,0) scale(1); }
+      to   { transform: translate(40px, 30px) scale(1.1); }
+    }
+    .hero-content {
+      position: relative; z-index: 2; text-align: center; max-width: 860px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(12,127,255,.15); border: 1px solid rgba(12,127,255,.3);
+      border-radius: 99px; padding: 6px 16px 6px 10px;
+      font-size: 13px; font-weight: 600; color: var(--cyan);
+      margin-bottom: 28px; backdrop-filter: blur(8px);
+    }
+    .hero-badge-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--cyan);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { box-shadow: 0 0 0 0 rgba(0,212,255,.6); }
+      50%      { box-shadow: 0 0 0 6px rgba(0,212,255,0); }
+    }
+    .hero-headline {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(42px, 7vw, 88px);
+      font-weight: 900; line-height: 1.0; letter-spacing: -.04em;
+      margin-bottom: 24px; color: var(--text);
+    }
+    .hero-headline .gradient-text {
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 50%, #a78bfa 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(17px, 2.2vw, 22px); font-weight: 400; color: var(--text2);
+      line-height: 1.65; max-width: 600px; margin: 0 auto 44px;
+    }
+    .hero-actions {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 14px; margin-bottom: 28px;
+    }
+    .btn-hero-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 32px; border-radius: 14px; font-size: 16px; font-weight: 700;
+      background: linear-gradient(135deg, var(--blue), #1a8cff);
+      color: #fff; transition: var(--transition);
+      box-shadow: 0 8px 40px rgba(12,127,255,.45);
+    }
+    .btn-hero-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 50px rgba(12,127,255,.55); }
+    .btn-hero-secondary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 28px; border-radius: 14px; font-size: 16px; font-weight: 600;
+      color: var(--text); border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06); backdrop-filter: blur(10px);
+      transition: var(--transition);
+    }
+    .btn-hero-secondary:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.3); transform: translateY(-2px); }
+    .btn-hero-wa {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 20px; border-radius: 99px; font-size: 14px; font-weight: 600;
+      color: #fff; background: #25d366;
+      transition: var(--transition);
+    }
+    .btn-hero-wa:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,.4); }
+    .hero-trust {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 24px; color: var(--text3); font-size: 13px; font-weight: 500;
+    }
+    .hero-trust-item { display: flex; align-items: center; gap: 6px; }
+    .hero-trust-item svg { width: 16px; height: 16px; color: var(--cyan); }
+    .scroll-cue {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: var(--text3); font-size: 11px; font-weight: 500; letter-spacing: .08em;
+      text-transform: uppercase; z-index: 2;
+      animation: scroll-bounce 2.4s ease-in-out infinite;
+    }
+    .scroll-cue-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--text3), transparent);
+    }
+    @keyframes scroll-bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); opacity: .7; }
+      50%      { transform: translateX(-50%) translateY(6px); opacity: 1; }
+    }
+
+    /* ===================== STATS BAR ===================== */
+    #stats {
+      position: relative; z-index: 2;
+      padding: 0 0 100px;
+    }
+    .stats-inner {
+      background: rgba(7,24,40,.7); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); backdrop-filter: blur(20px);
+      padding: 48px 0; display: grid;
+      grid-template-columns: repeat(4,1fr);
+      divide-x: 1px solid var(--border);
+    }
+    .stat-item {
+      text-align: center; padding: 0 32px;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(32px, 4vw, 52px); font-weight: 900; line-height: 1;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 6px;
+    }
+    .stat-label { font-size: 14px; color: var(--text2); font-weight: 500; }
+
+    /* ===================== SECTION COMMON ===================== */
+    .section { padding: 100px 0; }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--cyan); margin-bottom: 16px;
+    }
+    .section-tag::before {
+      content: ''; display: block; width: 20px; height: 2px;
+      background: linear-gradient(90deg, var(--cyan), var(--blue));
+      border-radius: 99px;
+    }
+    .section-headline {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(30px, 4vw, 52px); font-weight: 900;
+      line-height: 1.1; letter-spacing: -.03em; color: var(--text);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 18px; color: var(--text2); line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* ===================== SERVICES ===================== */
+    #services { background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%); }
+    .services-header {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+      align-items: end; margin-bottom: 64px;
+    }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
+    }
+    .service-card {
+      position: relative; border-radius: var(--radius-lg); overflow: hidden;
+      background: var(--bg3); border: 1px solid var(--border);
+      padding: 44px 40px; transition: var(--transition);
+      cursor: pointer;
+    }
+    .service-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(12,127,255,.08) 0%, transparent 60%);
+      opacity: 0; transition: var(--transition);
+    }
+    .service-card:hover { transform: translateY(-6px); border-color: rgba(12,127,255,.4); box-shadow: 0 20px 60px rgba(0,0,0,.4), var(--glow-blue); }
+    .service-card:hover::before { opacity: 1; }
+    .service-card-glow {
+      position: absolute; top: -60px; right: -60px; width: 200px; height: 200px;
+      border-radius: 50%; filter: blur(60px); pointer-events: none;
+      background: rgba(12,127,255,.2); opacity: 0; transition: var(--transition);
+    }
+    .service-card:hover .service-card-glow { opacity: 1; }
+    .service-icon {
+      width: 64px; height: 64px; border-radius: 16px; margin-bottom: 28px;
+      background: linear-gradient(135deg, rgba(12,127,255,.2), rgba(0,212,255,.1));
+      border: 1px solid rgba(12,127,255,.3);
+      display: grid; place-items: center;
+    }
+    .service-icon svg { width: 32px; height: 32px; color: var(--cyan); }
+    .service-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 24px; font-weight: 800; letter-spacing: -.02em;
+      color: var(--text); margin-bottom: 12px;
+    }
+    .service-desc { font-size: 15px; color: var(--text2); line-height: 1.7; margin-bottom: 28px; }
+    .service-features { margin-bottom: 36px; display: grid; gap: 10px; }
+    .service-feature {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: var(--text2); line-height: 1.5;
+    }
+    .feature-check {
+      width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px;
+      border-radius: 50%; background: rgba(34,197,94,.15);
+      display: grid; place-items: center;
+    }
+    .feature-check svg { width: 10px; height: 10px; color: var(--green); }
+    .service-card-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: 10px; font-size: 14px; font-weight: 700;
+      background: linear-gradient(135deg, var(--blue), #1a8cff);
+      color: #fff; transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(12,127,255,.3);
+    }
+    .service-card-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 28px rgba(12,127,255,.45); }
+    .service-card-btn svg { width: 16px; height: 16px; }
+
+    /* ===================== PROCESS ===================== */
+    #process {
+      background: var(--bg2);
+      position: relative; overflow: hidden;
+    }
+    #process::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 1px; background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    }
+    .process-header { text-align: center; margin-bottom: 72px; }
+    .process-header .section-sub { margin: 0 auto; }
+    .process-steps {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+      position: relative;
+    }
+    .process-steps::before {
+      content: ''; position: absolute;
+      top: 40px; left: calc(16.67% + 20px); right: calc(16.67% + 20px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan), var(--blue));
+      z-index: 0;
+    }
+    .process-step {
+      text-align: center; padding: 0 32px; position: relative; z-index: 1;
+    }
+    .step-number {
+      width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 28px;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      display: grid; place-items: center;
+      font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 900; color: #fff;
+      box-shadow: 0 0 40px rgba(12,127,255,.5);
+      position: relative;
+    }
+    .step-number::after {
+      content: ''; position: absolute; inset: -4px; border-radius: 50%;
+      border: 2px solid rgba(0,212,255,.3);
+    }
+    .step-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px; font-weight: 800; color: var(--text);
+      margin-bottom: 12px; letter-spacing: -.02em;
+    }
+    .step-desc { font-size: 15px; color: var(--text2); line-height: 1.7; }
+
+    /* ===================== WHY US ===================== */
+    #why {
+      background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+    }
+    .why-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .why-left .section-sub { margin-bottom: 40px; }
+    .why-cta-group { display: flex; flex-wrap: wrap; gap: 12px; }
+    .why-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .why-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px 24px;
+      transition: var(--transition);
+    }
+    .why-card:hover { border-color: rgba(0,212,255,.3); transform: translateY(-3px); }
+    .why-card-icon {
+      width: 48px; height: 48px; border-radius: 12px; margin-bottom: 16px;
+      background: linear-gradient(135deg, rgba(0,212,255,.15), rgba(12,127,255,.1));
+      border: 1px solid rgba(0,212,255,.2);
+      display: grid; place-items: center;
+    }
+    .why-card-icon svg { width: 24px; height: 24px; color: var(--cyan); }
+    .why-card-title {
+      font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px;
+    }
+    .why-card-desc { font-size: 13px; color: var(--text2); line-height: 1.6; }
+
+    /* ===================== TESTIMONIALS ===================== */
+    #testimonials { background: var(--bg); }
+    .testimonials-header { text-align: center; margin-bottom: 64px; }
+    .testimonials-header .section-sub { margin: 0 auto; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testimonial-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 36px 32px;
+      transition: var(--transition); position: relative;
+    }
+    .testimonial-card:hover { border-color: rgba(12,127,255,.3); transform: translateY(-4px); }
+    .testimonial-stars {
+      display: flex; gap: 4px; margin-bottom: 20px;
+    }
+    .testimonial-stars svg { width: 18px; height: 18px; fill: var(--gold); color: var(--gold); }
+    .testimonial-text {
+      font-size: 15px; color: var(--text2); line-height: 1.75;
+      margin-bottom: 28px; font-style: italic;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 14px; }
+    .testimonial-avatar {
+      width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      display: grid; place-items: center;
+      font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 800; color: #fff;
+    }
+    .testimonial-name { font-size: 14px; font-weight: 700; color: var(--text); }
+    .testimonial-loc { font-size: 12px; color: var(--text3); margin-top: 2px; }
+    .testimonial-quote-mark {
+      position: absolute; top: 24px; right: 28px;
+      font-size: 80px; line-height: 1; color: rgba(12,127,255,.08);
+      font-family: Georgia, serif; pointer-events: none;
+    }
+
+    /* ===================== CTA ===================== */
+    #cta {
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #030f1e 0%, #041525 50%, #030b14 100%);
+      padding: 120px 0;
+    }
+    #cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(12,127,255,.18) 0%, transparent 70%);
+    }
+    #cta::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 1px; background: linear-gradient(90deg, transparent, rgba(0,212,255,.6), transparent);
+    }
+    .cta-inner {
+      position: relative; z-index: 1; text-align: center;
+    }
+    .cta-headline {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(32px, 5vw, 64px); font-weight: 900;
+      line-height: 1.05; letter-spacing: -.04em; color: var(--text);
+      margin-bottom: 20px;
+    }
+    .cta-sub { font-size: 18px; color: var(--text2); margin-bottom: 48px; line-height: 1.65; }
+    .cta-actions {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .btn-cta-call {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 32px; border-radius: 14px; font-size: 16px; font-weight: 700;
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2);
+      color: var(--text); backdrop-filter: blur(10px); transition: var(--transition);
+    }
+    .btn-cta-call:hover { background: rgba(255,255,255,.14); transform: translateY(-2px); }
+    .btn-cta-wa {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 32px; border-radius: 14px; font-size: 16px; font-weight: 700;
+      background: #25d366; color: #fff; transition: var(--transition);
+      box-shadow: 0 8px 32px rgba(37,211,102,.35);
+    }
+    .btn-cta-wa:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(37,211,102,.5); }
+    .btn-cta-book {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 32px; border-radius: 14px; font-size: 16px; font-weight: 700;
+      background: linear-gradient(135deg, var(--blue), #1a8cff);
+      color: #fff; transition: var(--transition);
+      box-shadow: 0 8px 32px rgba(12,127,255,.45);
+    }
+    .btn-cta-book:hover { transform: translateY(-3px); box-shadow: 0 16px 48px rgba(12,127,255,.55); }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: var(--bg2); border-top: 1px solid var(--border);
+      padding: 72px 0 40px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px;
+      padding-bottom: 60px; border-bottom: 1px solid var(--border); margin-bottom: 40px;
+    }
+    .footer-brand .nav-logo { margin-bottom: 16px; }
+    .footer-brand-desc { font-size: 14px; color: var(--text2); line-height: 1.7; margin-bottom: 24px; max-width: 320px; }
+    .footer-socials { display: flex; gap: 10px; }
+    .footer-social {
+      width: 40px; height: 40px; border-radius: 10px;
+      border: 1px solid var(--border); display: grid; place-items: center;
+      color: var(--text2); transition: var(--transition);
+    }
+    .footer-social:hover { border-color: var(--blue); color: var(--cyan); background: rgba(12,127,255,.1); }
+    .footer-social svg { width: 18px; height: 18px; }
+    .footer-col-title {
+      font-size: 12px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--text3); margin-bottom: 20px;
+    }
+    .footer-links { display: grid; gap: 12px; }
+    .footer-links a {
+      font-size: 14px; color: var(--text2); transition: var(--transition);
+    }
+    .footer-links a:hover { color: var(--cyan); }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 13px; color: var(--text3); }
+    .footer-note { font-size: 12px; color: var(--text3); }
+
+    /* ===================== FLOATING ACTIONS ===================== */
+    .floating-actions {
+      position: fixed; right: 20px; bottom: 20px; z-index: 800;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .float-btn {
+      width: 54px; height: 54px; border-radius: 50%;
+      display: grid; place-items: center; color: #fff;
+      box-shadow: 0 8px 30px rgba(0,0,0,.3); transition: var(--transition);
+    }
+    .float-btn:hover { transform: translateY(-3px); }
+    .float-wa { background: #25d366; box-shadow: 0 8px 28px rgba(37,211,102,.4); }
+    .float-wa:hover { box-shadow: 0 14px 36px rgba(37,211,102,.55); }
+    .float-up {
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      opacity: 0; pointer-events: none; transform: translateY(10px);
+      transition: opacity .3s ease, transform .3s ease;
+    }
+    .float-up.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .float-up:hover { transform: translateY(-5px); }
+    .float-btn svg { width: 26px; height: 26px; }
+
+    /* ===================== BOOKING MODAL ===================== */
+    .modal-backdrop {
+      position: fixed; inset: 0; z-index: 1000;
+      display: none; align-items: center; justify-content: center;
+      background: rgba(2,7,14,.8); backdrop-filter: blur(16px);
+      padding: 20px;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal {
+      width: min(96vw, 580px); max-height: min(90svh, 780px);
+      overflow-y: auto; border-radius: var(--radius-lg);
+      background: var(--bg3); border: 1px solid var(--border);
+      box-shadow: 0 40px 100px rgba(0,0,0,.7), var(--glow-blue);
+      color: var(--text);
+    }
+    .modal-head {
+      padding: 32px 36px 28px; border-bottom: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(12,127,255,.12), rgba(0,212,255,.05));
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;
+    }
+    .modal-head h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 26px; font-weight: 900; letter-spacing: -.03em; color: var(--text);
+      margin-bottom: 4px;
+    }
+    .modal-head p { font-size: 14px; color: var(--text2); }
+    .modal-close {
+      width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
+      display: grid; place-items: center; color: var(--text2);
+      background: rgba(255,255,255,.06); transition: var(--transition);
+    }
+    .modal-close:hover { background: rgba(255,255,255,.12); color: var(--text); }
+    .modal-close svg { width: 18px; height: 18px; }
+    .modal-body { padding: 32px 36px; display: grid; gap: 20px; }
+    .field { display: grid; gap: 8px; }
+    .field label { font-size: 13px; font-weight: 700; color: var(--text2); letter-spacing: .02em; }
+    .field input, .field select, .field textarea {
+      width: 100%; background: rgba(255,255,255,.05); border: 1px solid var(--border);
+      border-radius: 10px; padding: 13px 16px; color: var(--text); font-size: 15px;
+      outline: none; transition: var(--transition);
+      -webkit-appearance: none;
+    }
+    .field input::placeholder, .field textarea::placeholder { color: var(--text3); }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      border-color: var(--blue); background: rgba(12,127,255,.08);
+      box-shadow: 0 0 0 4px rgba(12,127,255,.15);
+    }
+    .field select option { background: var(--bg3); color: var(--text); }
+    .field textarea { min-height: 96px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .btn-submit {
+      width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 800;
+      background: linear-gradient(135deg, var(--blue), #1a8cff); color: #fff;
+      transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 10px;
+      box-shadow: 0 8px 32px rgba(12,127,255,.4);
+    }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(12,127,255,.55); }
+    .fine-print { font-size: 12px; color: var(--text3); text-align: center; line-height: 1.6; }
+
+    /* Service info modal content */
+    .info-features { display: grid; gap: 10px; margin: 16px 0 24px; }
+    .info-feature {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: var(--text2); line-height: 1.5;
+    }
+    .info-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .info-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: 10px; font-size: 14px; font-weight: 700;
+      transition: var(--transition);
+    }
+    .info-btn-primary { background: linear-gradient(135deg, var(--blue), #1a8cff); color: #fff; box-shadow: 0 4px 20px rgba(12,127,255,.3); }
+    .info-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 28px rgba(12,127,255,.45); }
+    .info-btn-wa { background: #25d366; color: #fff; }
+    .info-btn-wa:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,211,102,.4); }
+    .info-btn-ghost { background: rgba(255,255,255,.08); border: 1px solid var(--border); color: var(--text2); }
+    .info-btn-ghost:hover { background: rgba(255,255,255,.13); color: var(--text); }
+
+    /* ===================== SCROLL ANIMATIONS ===================== */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity .7s cubic-bezier(.4,0,.2,1), transform .7s cubic-bezier(.4,0,.2,1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity .8s cubic-bezier(.4,0,.2,1), transform .8s cubic-bezier(.4,0,.2,1); }
+    .reveal-left.visible { opacity: 1; transform: none; }
+    .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity .8s cubic-bezier(.4,0,.2,1), transform .8s cubic-bezier(.4,0,.2,1); }
+    .reveal-right.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+    .reveal-delay-4 { transition-delay: .4s; }
+    .reveal-delay-5 { transition-delay: .5s; }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 1024px) {
+      .why-layout { grid-template-columns: 1fr; gap: 48px; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid .testimonial-card:last-child { display: none; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .services-header { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .stat-item:nth-child(3) { border-top: 1px solid var(--border); }
+      .stat-item:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+      .process-steps { grid-template-columns: 1fr; gap: 48px; }
+      .process-steps::before { display: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .testimonials-grid .testimonial-card:last-child { display: block; }
+      .testimonials-grid .testimonial-card:nth-child(3) { display: none; }
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      .modal-head { padding: 24px; }
+      .modal-body { padding: 24px; }
+    }
+    @media (max-width: 480px) {
+      .stats-inner { padding: 32px 0; }
+      .stat-item { padding: 0 20px; }
+      .service-card { padding: 32px 28px; }
+      .cta-actions { flex-direction: column; align-items: center; }
+      .cta-actions > * { width: 100%; justify-content: center; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .hero-actions > * { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav id="navbar" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a class="nav-logo" href="#top">
+        <div class="nav-logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 5H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M10.5 13a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0"/><path d="M16 3v4"/><path d="M8 3v4"/>
+          </svg>
+        </div>
+        RajTech<span style="color:var(--cyan)">.</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#cta">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn-ghost" href="tel:+18681234567">Call (868) 123-4567</a>
+        <button class="btn-primary js-open-booking" data-service="AC Service &amp; Maintenance">Book a Service</button>
+      </div>
+      <button class="nav-hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============ MOBILE MENU ============ -->
+  <div id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
+    <button id="mobile-close" aria-label="Close menu">&times;</button>
+    <a href="#services" class="mobile-nav-link">Services</a>
+    <a href="#process" class="mobile-nav-link">How It Works</a>
+    <a href="#why" class="mobile-nav-link">Why Us</a>
+    <a href="#testimonials" class="mobile-nav-link">Reviews</a>
+    <a href="tel:+18681234567" class="mobile-nav-link">Call Us</a>
+    <button class="btn-primary js-open-booking" data-service="AC Service &amp; Maintenance" style="font-size:18px;padding:16px 40px;border-radius:12px;width:100%;max-width:320px;justify-content:center;">Book a Service</button>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero" id="top">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-grid-overlay" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Trinidad's Premium AC Specialists
+        </div>
+        <h1 class="hero-headline">
+          Stay Cool.<br/>
+          <span class="gradient-text">Stay Comfortable.</span>
+        </h1>
+        <p class="hero-sub">
+          Professional split-unit AC installation and servicing for homes and businesses across Trinidad — delivered with precision, transparency, and genuine care.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-hero-primary js-open-booking" data-service="AC Service &amp; Maintenance">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            Book a Service
+          </button>
+          <a class="btn-hero-secondary" href="tel:+18681234567">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1A19.5 19.5 0 0 1 5.5 13a19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.9 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+            Call (868) 123-4567
+          </a>
+          <a class="btn-hero-wa" href="https://wa.me/18681234567?text=Hello%20RajTech%2C%20I%20would%20like%20AC%20service." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M4.3 19.7 5.4 16A8 8 0 1 1 8 18.6l-3.7 1.1Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9.2 8.9c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .5.4l.6 1.4c.1.3.1.5-.1.7l-.4.5c-.1.2-.2.3-.1.5.3.6.8 1.1 1.3 1.5.5.4 1 .7 1.6.9.2.1.3 0 .5-.1l.7-.8c.2-.2.4-.2.7-.1l1.5.7c.3.1.4.3.4.5 0 .6-.2 1.2-.7 1.6-.4.4-.9.5-1.5.5-1.1 0-2.8-.6-4.5-2.1-1.7-1.5-2.9-3.4-3.1-4.7-.1-.6 0-1.1.4-1.6.3-.4.6-.7 1-.9Z" fill="currentColor"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+        <div class="hero-trust">
+          <span class="hero-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>
+            Quality Workmanship
+          </span>
+          <span class="hero-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>
+            Honest Pricing
+          </span>
+          <span class="hero-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>
+            On-Time Every Time
+          </span>
+          <span class="hero-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>
+            Local Trinidad Team
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">
+      <div class="scroll-cue-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section id="stats">
+    <div class="container">
+      <div class="stats-inner reveal">
+        <div class="stat-item">
+          <div class="stat-num" data-count="5" data-suffix="+">0+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" data-count="300" data-suffix="+">0+</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" data-count="500" data-suffix="+">0+</div>
+          <div class="stat-label">Units Installed</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" data-count="100" data-suffix="%">0%</div>
+          <div class="stat-label">Satisfaction Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="services-header">
+        <div>
+          <div class="section-tag reveal">What We Do</div>
+          <h2 class="section-headline reveal reveal-delay-1">Expert Services<br/>for Every Home</h2>
+        </div>
+        <p class="section-sub reveal reveal-delay-2">
+          We specialise exclusively in split-unit air conditioning — so every job gets the focused attention and expertise it deserves.
+        </p>
+      </div>
+      <div class="services-grid">
+        <!-- Installation -->
+        <div class="service-card reveal" role="button" tabindex="0" data-info="install" aria-label="View AC Installation details">
+          <div class="service-card-glow" aria-hidden="true"></div>
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+              <path d="M7 8h2m4 0h2M7 11h10"/>
+            </svg>
+          </div>
+          <div class="service-title">AC Installation</div>
+          <p class="service-desc">Professional installation of split-unit air conditioners for homes and small businesses, set up correctly for maximum efficiency and performance.</p>
+          <ul class="service-features">
+            <li class="service-feature">
+              <span class="feature-check" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l2.5 2 5-5"/></svg></span>
+              Indoor and outdoor unit positioning
+            </li>
+            <li class="service-feature">
+              <span class="feature-check" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l2.5 2 5-5"/></svg></span>
+              Secure mounting and professional setup
+            </li>
+            <li class="service-feature">
+              <span class="feature-check" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l2.5 2 5-5"/></svg></span>
+              Drainage, line-set routing and sealing
+            </li>
+            <li class="service-feature">
+              <span class="feature-check" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l2.5 2 5-5"/></svg></span>
+              Full test-run and handover check
+            </li>
+          </ul>
+          <button class="service-card-btn js-open-booking" data-service="AC Installation">
+            Book Installation
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <!-- Maintenance -->
+        <div class="service-card reveal reveal-delay-2" role="button" tabindex="0" data-info="maintenance" aria-label="View AC Maintenance details">
+          <div class="service-card-glow" aria-hidden="true"></div>
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/>
+              <path d="M18 2v4h4"/>
+            </svg>
+          </div>
+          <div class="service-title">AC Service &amp; Maintenance</div>
+          <p class="service-desc">Regular cleaning, inspection and servicing to keep your air conditioner running efficiently, extend its lifespan, and avoid costly breakdowns.</p>
+          <ul class="service-features">
+            <li class="service-feature">
+              <span class="feature-check" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l2.5 2 5-5"/></svg></span>
+              Deep cleaning of indoor and outdoor units
+            </li>
+            <li class="service-feature">
+              <span class="feature-check" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l2.5 2 5-5"/></svg></span>
+              Filter wash and evaporator coil clean
+            </li>
+            <li class="service-feature">
+              <span class="feature-check" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l2.5 2 5-5"/></svg></span>
+              Performance and cooling capacity check
+            </li>
+            <li class="service-feature">
+              <span class="feature-check" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l2.5 2 5-5"/></svg></span>
+              Honest advice on any concerns found
+            </li>
+          </ul>
+          <button class="service-card-btn js-open-booking" data-service="AC Service &amp; Maintenance">
+            Book a Service
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section id="process" class="section">
+    <div class="container">
+      <div class="process-header">
+        <div class="section-tag reveal">How It Works</div>
+        <h2 class="section-headline reveal reveal-delay-1">Simple. Fast. Reliable.</h2>
+        <p class="section-sub reveal reveal-delay-2">Getting your AC installed or serviced with RajTech is straightforward — no hidden steps, no surprises.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="step-number">1</div>
+          <div class="step-title">Book Online or Call</div>
+          <p class="step-desc">Fill out our quick booking form or call / WhatsApp us directly. Tell us your location, AC type, and what you need — takes under 2 minutes.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="step-number">2</div>
+          <div class="step-title">We Come to You</div>
+          <p class="step-desc">Our technician arrives at your home or business at the agreed time, fully equipped and ready to get the job done properly first time.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-4">
+          <div class="step-number">3</div>
+          <div class="step-title">Cool &amp; Comfortable</div>
+          <p class="step-desc">We complete the work, test everything, and walk you through what was done. You pay only after you're satisfied — honest pricing, no surprises.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY US ============ -->
+  <section id="why" class="section">
+    <div class="container">
+      <div class="why-layout">
+        <div class="why-left">
+          <div class="section-tag reveal-left">Why Choose RajTech</div>
+          <h2 class="section-headline reveal-left reveal-delay-1">Small Team.<br/>Big Standards.</h2>
+          <p class="section-sub reveal-left reveal-delay-2">We're a focused local team that cares about doing the job right. No call centres, no inflated quotes — just honest, expert AC work delivered with pride.</p>
+          <div class="why-cta-group reveal-left reveal-delay-3" style="margin-top:36px;">
+            <button class="btn-hero-primary js-open-booking" data-service="AC Service &amp; Maintenance">
+              Book Now
+            </button>
+            <a class="btn-hero-secondary" href="tel:+18681234567">Call Us</a>
+          </div>
+        </div>
+        <div class="why-grid">
+          <div class="why-card reveal reveal-delay-1">
+            <div class="why-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <div class="why-card-title">On-Time Service</div>
+            <p class="why-card-desc">We show up when we say we will. Your time matters and we respect it.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-2">
+            <div class="why-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="why-card-title">Quality Workmanship</div>
+            <p class="why-card-desc">Every installation and service is done to last — no shortcuts, ever.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-3">
+            <div class="why-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 1 0 0 7h5a3.5 3.5 0 1 1 0 7H6"/>
+              </svg>
+            </div>
+            <div class="why-card-title">Honest Pricing</div>
+            <p class="why-card-desc">We quote upfront and stick to it. No hidden fees, no last-minute surprises.</p>
+          </div>
+          <div class="why-card reveal reveal-delay-4">
+            <div class="why-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div class="why-card-title">Local Experts</div>
+            <p class="why-card-desc">We're from Trinidad, serving Trinidad. We know the climate, the homes, and what works.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <div class="testimonials-header">
+        <div class="section-tag reveal">Customer Reviews</div>
+        <h2 class="section-headline reveal reveal-delay-1">Trusted by Families<br/>Across Trinidad</h2>
+        <p class="section-sub reveal reveal-delay-2">Real feedback from real customers — we let the work speak for itself.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-quote-mark" aria-hidden="true">&ldquo;</div>
+          <div class="testimonial-stars" aria-label="5 stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-text">"RajTech installed our new split unit in Chaguanas and the whole job was done cleanly and professionally. They were on time, the pricing was exactly as quoted, and the unit is running perfectly. Highly recommend!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">M</div>
+            <div>
+              <div class="testimonial-name">Marcus A.</div>
+              <div class="testimonial-loc">Chaguanas, Trinidad</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-quote-mark" aria-hidden="true">&ldquo;</div>
+          <div class="testimonial-stars" aria-label="5 stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-text">"Called RajTech for a service on my bedroom unit in Diego Martin and they came the same week. The technician was friendly, explained everything, and the AC is so much cooler now. Great honest service."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">S</div>
+            <div>
+              <div class="testimonial-name">Shivani R.</div>
+              <div class="testimonial-loc">Diego Martin, Trinidad</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-4">
+          <div class="testimonial-quote-mark" aria-hidden="true">&ldquo;</div>
+          <div class="testimonial-stars" aria-label="5 stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-text">"Used RajTech to install two units at my small office in San Fernando. The team was professional, tidy, and completed everything on schedule. The units are working great. Will definitely call them again."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">K</div>
+            <div>
+              <div class="testimonial-name">Kevin J.</div>
+              <div class="testimonial-loc">San Fernando, Trinidad</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section id="cta">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="section-tag reveal" style="justify-content:center;">Ready When You Are</div>
+        <h2 class="cta-headline reveal reveal-delay-1">Ready for Perfect<br/><span style="background:linear-gradient(135deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Cooling?</span></h2>
+        <p class="cta-sub reveal reveal-delay-2">Book a service online, call us, or send a WhatsApp message — we'll get back to you fast.</p>
+        <div class="cta-actions reveal reveal-delay-3">
+          <button class="btn-cta-book js-open-booking" data-service="AC Service &amp; Maintenance">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            Book a Service
+          </button>
+          <a class="btn-cta-call" href="tel:+18681234567">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1A19.5 19.5 0 0 1 5.5 13a19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.9 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+            (868) 123-4567
+          </a>
+          <a class="btn-cta-wa" href="https://wa.me/18681234567?text=Hello%20RajTech%2C%20I%20would%20like%20AC%20service." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M4.3 19.7 5.4 16A8 8 0 1 1 8 18.6l-3.7 1.1Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9.2 8.9c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .5.4l.6 1.4c.1.3.1.5-.1.7l-.4.5c-.1.2-.2.3-.1.5.3.6.8 1.1 1.3 1.5.5.4 1 .7 1.6.9.2.1.3 0 .5-.1l.7-.8c.2-.2.4-.2.7-.1l1.5.7c.3.1.4.3.4.5 0 .6-.2 1.2-.7 1.6-.4.4-.9.5-1.5.5-1.1 0-2.8-.6-4.5-2.1-1.7-1.5-2.9-3.4-3.1-4.7-.1-.6 0-1.1.4-1.6.3-.4.6-.7 1-.9Z" fill="currentColor"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="nav-logo" href="#top" aria-label="RajTech home">
+            <div class="nav-logo-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 5H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/><rect x="8" y="2" width="8" height="4" rx="1"/>
+              </svg>
+            </div>
+            RajTech<span style="color:var(--cyan)">.</span>
+          </a>
+          <p class="footer-brand-desc">Premium split-unit AC installation and servicing for homes and small businesses across Trinidad. Quality workmanship, honest pricing, on-time service.</p>
+          <div class="footer-socials">
+            <a class="footer-social" href="#" aria-label="RajTech on Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a class="footer-social" href="#" aria-label="RajTech on Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a class="footer-social" href="https://wa.me/18681234567" target="_blank" rel="noopener" aria-label="RajTech on WhatsApp">
+              <svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M4.3 19.7 5.4 16A8 8 0 1 1 8 18.6l-3.7 1.1Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links" role="list">
+            <li><a href="#services">AC Installation</a></li>
+            <li><a href="#services">AC Service &amp; Maintenance</a></li>
+            <li><button class="footer-links-btn js-open-booking" data-service="AC Installation" style="background:none;border:none;color:var(--text2);font:inherit;cursor:pointer;font-size:14px;padding:0;transition:color .3s;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--text2)'">Book a Service</button></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links" role="list">
+            <li><a href="tel:+18681234567">(868) 123-4567</a></li>
+            <li><a href="https://wa.me/18681234567" target="_blank" rel="noopener">WhatsApp Us</a></li>
+            <li><span style="color:var(--text3);font-size:14px;">Trinidad &amp; Tobago</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2025 RajTech Cooling Solutions. All rights reserved.</p>
+        <p class="footer-note">Replace placeholder phone number before publishing.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ FLOATING ACTIONS ============ -->
+  <div class="floating-actions" aria-label="Quick contact">
+    <a class="float-btn float-wa" href="https://wa.me/18681234567?text=Hello%20RajTech%2C%20I%20would%20like%20AC%20service." target="_blank" rel="noopener" aria-label="WhatsApp RajTech">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4.3 19.7 5.4 16A8 8 0 1 1 8 18.6l-3.7 1.1Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9.2 8.9c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .5.4l.6 1.4c.1.3.1.5-.1.7l-.4.5c-.1.2-.2.3-.1.5.3.6.8 1.1 1.3 1.5.5.4 1 .7 1.6.9.2.1.3 0 .5-.1l.7-.8c.2-.2.4-.2.7-.1l1.5.7c.3.1.4.3.4.5 0 .6-.2 1.2-.7 1.6-.4.4-.9.5-1.5.5-1.1 0-2.8-.6-4.5-2.1-1.7-1.5-2.9-3.4-3.1-4.7-.1-.6 0-1.1.4-1.6.3-.4.6-.7 1-.9Z" fill="currentColor"/></svg>
+    </a>
+    <button class="float-btn float-up" id="backTop" type="button" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M6 11l6-6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <!-- ============ BOOKING MODAL ============ -->
+  <div class="modal-backdrop" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle" aria-hidden="true">
+    <div class="modal">
+      <div class="modal-head">
+        <div>
+          <h2 id="bookingTitle">Book a Service</h2>
+          <p>We'll confirm your booking via WhatsApp.</p>
+        </div>
+        <button class="modal-close" data-close aria-label="Close booking">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <form class="modal-body" id="bookingForm" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="f-name">Full Name</label>
+            <input id="f-name" name="name" required placeholder="Your name" autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone Number</label>
+            <input id="f-phone" name="phone" required placeholder="(868) 123-4567" inputmode="tel" autocomplete="tel" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-area">Area in Trinidad</label>
+          <input id="f-area" name="area" required placeholder="e.g. Chaguanas, Diego Martin, San Fernando" />
+        </div>
+        <div class="field">
+          <label for="f-service">Service Needed</label>
+          <select id="f-service" name="service">
+            <option>AC Service &amp; Maintenance</option>
+            <option>AC Installation</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-date">Preferred Date</label>
+          <input id="f-date" name="date" type="date" />
+        </div>
+        <div class="field">
+          <label for="f-message">Message</label>
+          <textarea id="f-message" name="message" placeholder="Tell us about your AC unit and what you need help with."></textarea>
+        </div>
+        <button class="btn-submit" type="submit">
+          <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M4.3 19.7 5.4 16A8 8 0 1 1 8 18.6l-3.7 1.1Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9.2 8.9c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .5.4l.6 1.4c.1.3.1.5-.1.7l-.4.5c-.1.2-.2.3-.1.5.3.6.8 1.1 1.3 1.5.5.4 1 .7 1.6.9.2.1.3 0 .5-.1l.7-.8c.2-.2.4-.2.7-.1l1.5.7c.3.1.4.3.4.5 0 .6-.2 1.2-.7 1.6-.4.4-.9.5-1.5.5-1.1 0-2.8-.6-4.5-2.1-1.7-1.5-2.9-3.4-3.1-4.7-.1-.6 0-1.1.4-1.6.3-.4.6-.7 1-.9Z" fill="currentColor"/></svg>
+          Send via WhatsApp
+        </button>
+        <p class="fine-print">Replace the placeholder phone number with RajTech's real number before publishing.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============ SERVICE INFO MODAL ============ -->
+  <div class="modal-backdrop" id="infoModal" role="dialog" aria-modal="true" aria-labelledby="infoTitle" aria-hidden="true">
+    <div class="modal">
+      <div class="modal-head">
+        <div>
+          <h2 id="infoTitle">Service Details</h2>
+          <p id="infoSub">RajTech Cooling Solutions</p>
+        </div>
+        <button class="modal-close" data-close aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="infoContent"></div>
+    </div>
+  </div>
+
+  <!-- ============ SCRIPT ============ -->
+  <script>
+    const PHONE_TEL = '+18681234567';
+    const WHATSAPP  = '18681234567';
+
+    /* ---- NAVBAR SCROLL ---- */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+      document.getElementById('backTop').classList.toggle('show', window.scrollY > 300);
+    }, { passive: true });
+    document.getElementById('backTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* ---- MOBILE MENU ---- */
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuToggle = document.getElementById('menuToggle');
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    menuToggle.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
+    document.getElementById('mobile-close').addEventListener('click', closeMenu);
+    document.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', closeMenu));
+
+    /* ---- MODALS ---- */
+    const bookingModal = document.getElementById('bookingModal');
+    const infoModal    = document.getElementById('infoModal');
+    const serviceSelect = document.getElementById('f-service');
+
+    function openModal(modal) {
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(modal) {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.js-open-booking').forEach(btn =>
+      btn.addEventListener('click', () => {
+        closeMenu();
+        if (btn.dataset.service) serviceSelect.value = btn.dataset.service;
+        openModal(bookingModal);
+      })
+    );
+    document.querySelectorAll('[data-close]').forEach(btn =>
+      btn.addEventListener('click', () => closeModal(btn.closest('.modal-backdrop')))
+    );
+    [bookingModal, infoModal].forEach(m =>
+      m.addEventListener('click', e => { if (e.target === m) closeModal(m); })
+    );
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeModal(bookingModal); closeModal(infoModal); }
+    });
+
+    /* ---- SERVICE CARD CLICKS ---- */
+    document.querySelectorAll('.service-card[data-info]').forEach(card => {
+      card.addEventListener('click', e => {
+        if (!e.target.closest('.service-card-btn')) openInfo(card.dataset.info);
+      });
+      card.addEventListener('keydown', e => {
+        if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('.service-card-btn')) {
+          e.preventDefault(); openInfo(card.dataset.info);
+        }
+      });
+    });
+
+    /* ---- SERVICE INFO DATA ---- */
+    const serviceInfo = {
+      install: {
+        title: 'AC Installation',
+        sub: 'Professional split-unit installation for homes and businesses.',
+        html: `
+          <p style="color:var(--text2);font-size:15px;line-height:1.7;margin-bottom:12px;">Complete installation of indoor evaporator and outdoor compressor/condenser units, done right first time.</p>
+          <ul class="info-features">
+            ${['Indoor & outdoor unit positioning','Secure mounting and bracket installation','Drainage and refrigerant line-set routing','Electrical connection and safety checks','Full test-run before handover'].map(f=>`<li class="info-feature"><span class="feature-check" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l2.5 2 5-5"/></svg></span>${f}</li>`).join('')}
+          </ul>
+          <div class="info-actions">
+            <button class="info-btn info-btn-primary js-book-from-info" data-service="AC Installation">Book Installation</button>
+            <a class="info-btn info-btn-wa" href="https://wa.me/${WHATSAPP}?text=Hello%20RajTech%2C%20I%20would%20like%20to%20ask%20about%20AC%20installation." target="_blank" rel="noopener">WhatsApp Us</a>
+            <a class="info-btn info-btn-ghost" href="tel:${PHONE_TEL}">Call Us</a>
+          </div>`
+      },
+      maintenance: {
+        title: 'AC Service & Maintenance',
+        sub: 'Deep clean, inspection and performance check for your AC.',
+        html: `
+          <p style="color:var(--text2);font-size:15px;line-height:1.7;margin-bottom:12px;">Regular servicing keeps your AC running efficiently, saves energy, and extends the life of your unit.</p>
+          <ul class="info-features">
+            ${['Deep clean of indoor and outdoor units','Filter wash and evaporator coil clean','Condensate drain flush','Cooling performance and capacity check','Honest advice on any concerns found'].map(f=>`<li class="info-feature"><span class="feature-check" aria-hidden="true"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1.5 5.5l2.5 2 5-5"/></svg></span>${f}</li>`).join('')}
+          </ul>
+          <div class="info-actions">
+            <button class="info-btn info-btn-primary js-book-from-info" data-service="AC Service &amp; Maintenance">Book Service</button>
+            <a class="info-btn info-btn-wa" href="https://wa.me/${WHATSAPP}?text=Hello%20RajTech%2C%20I%20would%20like%20to%20book%20AC%20service." target="_blank" rel="noopener">WhatsApp Us</a>
+            <a class="info-btn info-btn-ghost" href="tel:${PHONE_TEL}">Call Us</a>
+          </div>`
+      }
+    };
+
+    function openInfo(key) {
+      const info = serviceInfo[key];
+      if (!info) return;
+      document.getElementById('infoTitle').textContent = info.title;
+      document.getElementById('infoSub').textContent   = info.sub;
+      document.getElementById('infoContent').innerHTML = info.html;
+      openModal(infoModal);
+      document.querySelectorAll('.js-book-from-info').forEach(btn =>
+        btn.addEventListener('click', () => {
+          closeModal(infoModal);
+          serviceSelect.value = btn.dataset.service;
+          openModal(bookingModal);
+        })
+      );
+    }
+
+    /* ---- BOOKING FORM ---- */
+    document.getElementById('bookingForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const d = Object.fromEntries(new FormData(e.currentTarget).entries());
+      const msg = `Hello RajTech, I would like to book ${d.service}.\n\nName: ${d.name}\nPhone: ${d.phone}\nArea: ${d.area}\nDate: ${d.date || 'Flexible'}\nMessage: ${d.message || 'No message.'}`;
+      window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+    });
+
+    /* ---- SCROLL REVEAL ---- */
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => revealObs.observe(el));
+
+    /* ---- COUNTER ANIMATION ---- */
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1800;
+      const start = performance.now();
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(ease * target) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    const statsObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('[data-count]').forEach(animateCounter);
+          statsObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    const statsSection = document.getElementById('stats');
+    if (statsSection) statsObs.observe(statsSection);
+  </script>
+</body>
+</html>
